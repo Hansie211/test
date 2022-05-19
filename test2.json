@@ -31,23 +31,24 @@
     ],
     "paths": {},
     "definitions": {
-      "BlogpostDTO": {
-        "required": [
-          "title"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "title": {
-            "title": "Title",
-            "type": "string"
+        "TokenRefresh": {
+            "required": [
+              "refresh"
+            ],
+            "type": "object",
+            "properties": {
+              "refresh": {
+                "title": "Refresh",
+                "type": "string",
+                "minLength": 1
+              },
+              "access": {
+                "title": "Access",
+                "type": "string",
+                "readOnly": true,
+                "minLength": 1
+              }
+            }
           }
-        }
-      }
     }
   }
