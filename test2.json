@@ -1,0 +1,364 @@
+{
+  "info": {
+    "title": "blogpost-microservice API",
+    "termsOfService": "https://www.google.com/policies/terms/",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "v1"
+  },
+  "tags": [
+    {
+      "name": "widget",
+      "description": "Widget operations."
+    },
+    {
+      "name": "gasket",
+      "description": "Operations related to gaskets"
+    }
+  ],
+  "paths": {
+    "/blogposts": {
+      "get": {
+        "tags": [
+          "Blogpost Resource"
+        ],
+        "parameters": [
+          {
+            "name": "author",
+            "in": "query",
+            "format": "uuid",
+            "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
+            "type": "string"
+          },
+          {
+            "name": "innovation",
+            "in": "query",
+            "format": "uuid",
+            "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "tags": [
+          "Blogpost Resource"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "403": {
+            "description": "Not Allowed"
+          }
+        },
+        "security": [
+          {
+            "SecurityScheme": [
+              "**"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/BlogpostDTO"
+            }
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/blogposts/{blogpostId}": {
+      "get": {
+        "tags": [
+          "Blogpost Resource"
+        ],
+        "parameters": [
+          {
+            "name": "blogpostId",
+            "in": "path",
+            "required": true,
+            "format": "uuid",
+            "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "tags": [
+          "Blogpost Resource"
+        ],
+        "parameters": [
+          {
+            "name": "blogpostId",
+            "in": "path",
+            "required": true,
+            "format": "uuid",
+            "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/BlogpostDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "403": {
+            "description": "Not Allowed"
+          }
+        },
+        "security": [
+          {
+            "SecurityScheme": [
+              "**"
+            ]
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Blogpost Resource"
+        ],
+        "parameters": [
+          {
+            "name": "blogpostId",
+            "in": "path",
+            "required": true,
+            "format": "uuid",
+            "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "403": {
+            "description": "Not Allowed"
+          }
+        },
+        "security": [
+          {
+            "SecurityScheme": [
+              "**"
+            ]
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/blogposts/{blogpostId}/like": {
+      "get": {
+        "tags": [
+          "Blogpost Resource"
+        ],
+        "parameters": [
+          {
+            "name": "blogpostId",
+            "in": "path",
+            "required": true,
+            "format": "uuid",
+            "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "403": {
+            "description": "Not Allowed"
+          }
+        },
+        "security": [
+          {
+            "SecurityScheme": [
+              "**"
+            ]
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "tags": [
+          "Blogpost Resource"
+        ],
+        "parameters": [
+          {
+            "name": "blogpostId",
+            "in": "path",
+            "required": true,
+            "format": "uuid",
+            "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "403": {
+            "description": "Not Allowed"
+          }
+        },
+        "security": [
+          {
+            "SecurityScheme": [
+              "**"
+            ]
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Blogpost Resource"
+        ],
+        "parameters": [
+          {
+            "name": "blogpostId",
+            "in": "path",
+            "required": true,
+            "format": "uuid",
+            "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "403": {
+            "description": "Not Allowed"
+          }
+        },
+        "security": [
+          {
+            "SecurityScheme": [
+              "**"
+            ]
+          }
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    }
+  },
+  "swagger": "2.0",
+  "definitions": {
+    "BlogpostDTO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "likeCount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "createdAt": {
+          "format": "date",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date",
+          "type": "string"
+        },
+        "innovationId": {
+          "type": "string"
+        },
+        "authorId": {
+          "type": "string"
+        },
+        "hasUserVoted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "UUID": {
+      "format": "uuid",
+      "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "SecurityScheme": {
+      "type": "apiKey",
+      "description": "Authentication",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "x-components": {}
+}
