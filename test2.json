@@ -17,14 +17,18 @@
   "produces": [
     "application/json"
   ],
-    "securityDefinitions": {
-        "SecurityScheme": {
-          "type": "apiKey",
-          "description": "Authentication",
-          "name": "Authorization",
-          "in": "header"
-        }
-      },
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
     "paths": {
 
     },
@@ -44,11 +48,6 @@
             "type": "string"
           }
         }
-      },
-      "UUID": {
-        "format": "uuid",
-        "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
-        "type": "string"
       }
     }
   }
