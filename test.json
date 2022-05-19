@@ -4,8 +4,29 @@
     "title" : "blogpost-microservice API",
     "version" : "0.1.0-SNAPSHOT"
   },
-
-  
+  "host": "www.example.com",
+  "schemes": [
+    "http"
+  ],
+  "basePath": "/api",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
   "paths" : {
     "/blogposts" : {
       "get" : {
