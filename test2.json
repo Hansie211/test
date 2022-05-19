@@ -30,34 +30,7 @@
       }
     ],
     "paths": {
-      "/myday": {
-        "post": {
-          "operationId": "myday_create",
-          "description": "",
-          "parameters": [
-            {
-              "name": "data",
-              "in": "body",
-              "required": true,
-              "schema": {
-                "$ref": "#/definitions/MyDay"
-              }
-            }
-          ],
-          "responses": {
-            "201": {
-              "description": "",
-              "schema": {
-                "$ref": "#/definitions/MyDay"
-              }
-            }
-          },
-          "tags": [
-            "myday"
-          ]
-        },
-        "parameters": []
-      }
+      
     },
     "definitions": {
       "Team": {
