@@ -1,32 +1,21 @@
 {
-  "swagger": "2.0",
+  "openapi" : "3.0.3",
   "info" : {
     "title" : "blogpost-microservice API",
-    "version" : "0.1.0-SNAPSHOT"
+    "termsOfService" : "https://www.google.com/policies/terms/",
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "https://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version" : "v1"
   },
-  "host": "www.example.com",
-  "schemes": [
-    "http"
-  ],
-  "basePath": "/api",
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "Bearer": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header"
-    }
-  },
-  "security": [
-    {
-      "Bearer": []
-    }
-  ],
+  "tags" : [ {
+    "name" : "widget",
+    "description" : "Widget operations."
+  }, {
+    "name" : "gasket",
+    "description" : "Operations related to gaskets"
+  } ],
   "paths" : {
     "/blogposts" : {
       "get" : {
