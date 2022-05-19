@@ -6,37 +6,37 @@
       "termsOfService": "https://www.google.com/policies/terms/",
       "version": "v1"
     },
-    "host": "www.example.nl",
-  "schemes": [
-    "http"
-  ],
-  "basePath": "/api",
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "Bearer": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header"
-    }
-  },
-  "security": [
-    {
-      "Bearer": []
-    }
-  ],
-    "paths": {
-
+    "host": "raw.githubusercontent.com",
+    "schemes": [
+      "http"
+    ],
+    "basePath": "/api",
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "securityDefinitions": {
+      "Bearer": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
     },
+    "security": [
+      {
+        "Bearer": []
+      }
+    ],
+    "paths": {},
     "definitions": {
       "BlogpostDTO": {
-          "required": ["title"],
-          "type": "object",
-          "properties": {
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
           "id": {
             "title": "Id",
             "type": "string",
@@ -51,4 +51,3 @@
       }
     }
   }
-  
