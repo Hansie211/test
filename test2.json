@@ -1,12 +1,12 @@
 {
     "swagger": "2.0",
     "info": {
-      "title": "blogpost-microservice API",
+      "title": "Fake API",
       "description": "Test description",
       "termsOfService": "https://www.google.com/policies/terms/",
       "version": "v1"
     },
-    "host": "raw.githubusercontent.com",
+    "host": "www.example.nl",
     "schemes": [
       "http"
     ],
@@ -29,26 +29,146 @@
         "Bearer": []
       }
     ],
-    "paths": {},
-    "definitions": {
-        "TokenRefresh": {
-            "required": [
-              "refresh"
-            ],
-            "type": "object",
-            "properties": {
-              "refresh": {
-                "title": "Refresh",
-                "type": "string",
-                "minLength": 1
-              },
-              "access": {
-                "title": "Access",
-                "type": "string",
-                "readOnly": true,
-                "minLength": 1
+    "paths": {
+      "/myday": {
+        "post": {
+          "operationId": "myday_create",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/MyDay"
               }
             }
+          ],
+          "responses": {
+            "201": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/MyDay"
+              }
+            }
+          },
+          "tags": [
+            "myday"
+          ]
+        },
+        "parameters": []
+      }
+    },
+    "definitions": {
+      "Team": {
+        "required": [
+          "team_name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "team_name": {
+            "title": "Team name",
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 1
           }
+        }
+      },
+      "MyDay": {
+        "required": [
+          "workday_start_sentiment",
+          "workday_overall_sentiment",
+          "workday_points"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "workday_start_sentiment": {
+            "title": "Workday start sentiment",
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0
+          },
+          "workday_overall_sentiment": {
+            "title": "Workday overall sentiment",
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0
+          },
+          "cheerful": {
+            "title": "Cheerful",
+            "type": "boolean"
+          },
+          "tired": {
+            "title": "Tired",
+            "type": "boolean"
+          },
+          "relaxed": {
+            "title": "Relaxed",
+            "type": "boolean"
+          },
+          "enthusiastic": {
+            "title": "Enthusiastic",
+            "type": "boolean"
+          },
+          "stressed": {
+            "title": "Stressed",
+            "type": "boolean"
+          },
+          "angry": {
+            "title": "Angry",
+            "type": "boolean"
+          },
+          "amazed": {
+            "title": "Amazed",
+            "type": "boolean"
+          },
+          "energetic": {
+            "title": "Energetic",
+            "type": "boolean"
+          },
+          "down": {
+            "title": "Down",
+            "type": "boolean"
+          },
+          "scared": {
+            "title": "Scared",
+            "type": "boolean"
+          },
+          "satisfied": {
+            "title": "Satisfied",
+            "type": "boolean"
+          },
+          "workday_points": {
+            "title": "Workday points",
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0
+          },
+          "additional_info": {
+            "title": "Additional info",
+            "type": "string",
+            "x-nullable": true
+          },
+          "teams": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Team"
+            },
+            "readOnly": true
+          }
+        }
+      }
     }
   }
