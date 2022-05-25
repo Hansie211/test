@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Frameo</title>
+
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #image-container {
+            height: 100%;
+            background-color: #F0F;
+            width: 1000px;
+        }
+
+        #image, #video {
+            display: none;
+        }
+    </style>
+    <script>function getImage() {
+            return document.getElementById("image")
+        }
+
+        function getVideo() {
+            return document.getElementById("video")
+        }
+
+        function hideElement(elem) {
+            elem.style.display = "none"
+        }
+
+        function showElement(elem) {
+            elem.style.display = "block"
+        }
+
+        function displayImage(url) {
+            var video = getVideo();
+            var image = getImage();
+
+            hideElement(video);
+            video.pause();
+
+            url = url.replace("https", "http");
+            alert(url)
+            image.scr = url;
+            showElement(image);
+        }
+
+        function display(url, is_photo) {
+            if (is_photo)
+                displayImage(url);
+        }</script>
+</head>
+
+<body>
+    <div id="image-container">
+        <image id="image" alt="image" />
+        <video id="video" />
+    </div>
+</body>
+</html>
